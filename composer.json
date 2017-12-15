@@ -1,5 +1,5 @@
 {
-    "name": "fortec/trending-github",
+    "name": "fortecdev/trending-github",
     "description": "Simple package to get trending repositories on Github.",
     "license": "MIT",
     "keywords": ["github","trending"],
@@ -12,7 +12,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Fortec\\GithubTrending\\": "src"
+            "Fortec\\": "src/"
         }
     }
 }
