@@ -2,13 +2,13 @@
 
 This package is a PHP port of [this module](https://github.com/ecrmnn/trending-github)
 
-### Installation
+## Installation
 
 ``` bash
 composer require fortecdev/trending-github
 ```
 
-### Usage
+## Usage
 
 ```php
 require_once __DIR__ . '/vendor/autoload.php';
@@ -37,7 +37,7 @@ var_dump($data);
 */
 ```
 
-### License
+## License
 
 The MIT License (MIT)
 
