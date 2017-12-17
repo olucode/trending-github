@@ -1,4 +1,4 @@
-# trending-guthub
+# trending-github
 
 This package is a PHP port of [this module](https://github.com/ecrmnn/trending-github)
 
