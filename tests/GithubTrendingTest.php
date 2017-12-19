@@ -17,4 +17,17 @@ class GithubTrendingTest extends TestCase
         // The result is an array
         $this->assertTrue(is_array($result));
     }
+
+    public function testUsePeriodAndLanguageFilters()
+    {
+        $github = new GithubTrending('weekly', 'java');
+        $result = $github->getTrending();
+
+        // The result is not empty
+        $this->assertNotTrue(empty($result));
+
+        // The result is an array
+        $this->assertTrue(is_array($result));
+    
+    }
 }

@@ -14,11 +14,28 @@ class GithubTrending
 {
 
 	/**
+	 * @var string
+	*/
+	protected $language;
+
+	/**
+	 * @var string
+	*/
+	protected $period;
+
+	/**
 	 * @var \Goutte\Client
 	*/
 	protected $client;
 
-	public function __construct(){
+	/**
+	 * 
+	 * @param string $period
+	 * @param string $language
+	*/	
+	public function __construct($period = "daily", $language = ""){
+		$this->language = $language;
+		$this->period = $period;
 		$this->client = new GoutteClient();
 	}
 
@@ -44,7 +61,7 @@ class GithubTrending
 	 * @param \Symfony\Component\DomCrawler\Crawler $crawler
 	 * @return array
 	*/
-	public function parseResponse(Crawler $crawler){
+	protected function parseResponse(Crawler $crawler){
 		$responseData = [];
 
 		$crawler->filter('ol.repo-list li')->each(function($node) use (&$responseData) {
@@ -99,7 +116,7 @@ class GithubTrending
 	 * @param array
 	 * @return string
 	*/
-	public function toString($arr){
+	protected function toString($arr){
 		return trim(implode(' ', $arr));
 	}
 
@@ -109,7 +126,7 @@ class GithubTrending
 	 * @return string
 	*/
 	protected function githubUrl(){
-		return "https://github.com/trending/?since=daily";
+		return "https://github.com/trending/". $this->language ."?since=". $this->period;
 	}
 
 }
